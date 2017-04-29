@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My MHACS</string>
+    <string name="username">ຊື່ຜູ້ໃຊ້</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="password">ລະຫັດຜ່ານ</string>
+    <string name="login">ເຂົ້າສູ່ລະບົບ</string>
+    <string name="loading">Loading</string>
+    <string name="tool_login">| Login MHACS |</string>
+    <string name="tool_main">| Dashboard MHACS |</string>
+    <string name="edit_user_profile">ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</string>
+    <string name="title">ແຈ້ງເຕືອນ</string>
+    <string name="humidity">ຄວາມຊຸ່ມ</string>
+    <string name="temperature">ອຸນຫະພູມ</string>
+    <string name="message_logout">ທ່ານຕ້ອງການທີ່ຈະອອກຈາກລະບົບນີ້ ແທ້ບໍ?</string>
+    <string name="message">ທ່ານຕ້ອງການທີ່ຈະປ່ຽນຜູ້ໃຊ້ ແທ້ບໍ? \n ການປ່ຽນຜູ້ໃຊ້ທ່ານຕ້ອງມີ Pin Code ໃນການເຂົ້າລະບົບໃໝ່</string>
+    <string name="info">ຂໍ້ມູນຜູ້ໃຊ້</string>
+    <string name="logout">ອອກຈາກລະບົບ</string>
+    <string name="log_pin_code">ປ່ຽນຜູ້ໃຊ້</string>
+    <string name="cancel">ຍົກເລີກ</string>
+    <string name="confirm">ເຫັນດີ</string>
+    <string name="running">ກຳລັງເຮັດວຽກຢູ່</string>
+    <string name="stop">ຢຸດເຮັດວຽກແລ້ວ</string>
+    <string name="last_change">ປ່ຽນແປງຫຼ້າສຸດ</string>
+    <string name="control_light">ຄວບຄຸມ ດອກໄຟ</string>
+    <string name="control_water_pump">ຄວບຄຸມ ປ້ຳນ້ຳ</string>
+    <string name="mode">ປ່ຽນໂໝດຄວບຄຸມ</string>
+</resources>

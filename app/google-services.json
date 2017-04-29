@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "687077393901",
+    "firebase_url": "https://final-mhacs.firebaseio.com",
+    "project_id": "final-mhacs",
+    "storage_bucket": "final-mhacs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687077393901:android:821e8229d65654a7",
+        "android_client_info": {
+          "package_name": "fe_nuol.la.mhacs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687077393901-2unr8rcpcph63jtoiall0agpt07hv8ug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjuvG21OzD8VoIlRPSW_U1irH2fB5VN6U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tb_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize">
+
+    <TextView
+        fontPath="fonts/DroidSans.ttf"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tool_login" />
+</android.support.v7.widget.Toolbar>

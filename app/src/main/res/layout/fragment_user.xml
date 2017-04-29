@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            style="@style/DefaultCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_32"
+            android:layout_marginRight="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_30">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_16">
+
+                <ImageButton
+                    android:src="@drawable/avatar_placeholder_300"
+                    android:background="@color/transparent"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/imb_profile"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80" />
+
+                <TextView
+                    android:id="@+id/user_info"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/info"
+                    android:textSize="@dimen/sp_20"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <View
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_height="@dimen/dp_2"
+                    android:background="@color/colorAccent" />
+
+                <LinearLayout
+                    android:weightSum="3"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_18"
+                        android:text="@string/username"
+                        android:layout_weight="1"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:text=":"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:paddingLeft="@dimen/dp_16"
+                        android:textSize="@dimen/sp_18"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:id="@+id/username"
+                        android:layout_weight="2"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/colorPrimaryDark" />
+
+                <LinearLayout
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/dp_20"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_18"
+                        android:text="@string/pin_code"
+                        android:layout_weight="1"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:text=":"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:paddingLeft="@dimen/dp_16"
+                        android:textSize="@dimen/sp_18"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:id="@+id/pin_code"
+                        android:layout_weight="2"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_3"
+                android:background="@color/colorPrimaryDark" />
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:weightSum="2"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnLogOut"
+            style="@style/OrangeButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/logout" />
+
+        <Button
+            android:id="@+id/btnC"
+            style="@style/BlueButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/log_pin_code"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="3dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/dim_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:visibility="gone"
+            android:alpha="0"/>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/famMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            fab:menu_colorNormal="@color/colorAccent"
+            fab:menu_icon="@drawable/ic_menu_white_36dp"
+            fab:menu_labels_style="@style/menu_labels_style"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_edit_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_border_color_black_36dp"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_label="@string/edit_user_profile"
+                fab:fab_colorPressed="@color/white_pressed"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_lock_outline_white_36dp"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_label="@string/logout"
+                fab:fab_colorPressed="@color/white_pressed"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_log_pin_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_settings_power_black_36dp"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_label="@string/log_pin_code"
+                fab:fab_colorPressed="@color/white_pressed"/>
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

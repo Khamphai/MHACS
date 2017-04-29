@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:plainpie="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_18"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_change"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:text=":"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/tv_date_time"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardViewHum"
+                    style="@style/DefaultCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:layout_marginLeft="@dimen/dp_32"
+                    android:layout_marginRight="@dimen/dp_32"
+                    android:layout_marginTop="@dimen/dp_10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dp_10">
+
+                        <az.plainpie.PieView
+                            android:id="@+id/pieViewHum"
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_150"
+                            plainpie:inner_pie_padding="30"
+                            plainpie:inner_text_visibility="true"
+                            plainpie:percentage="75"
+                            plainpie:percentage_size="30" />
+
+                        <TextView
+                            android:id="@+id/txtMessageHum"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_15"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/humidity"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/sp_25"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_3"
+                        android:background="@color/colorPrimaryDark" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardViewTem"
+                    style="@style/DefaultCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:layout_marginLeft="@dimen/dp_32"
+                    android:layout_marginRight="@dimen/dp_32"
+                    android:layout_marginTop="@dimen/dp_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dp_10">
+
+                        <az.plainpie.PieView
+                            android:id="@+id/pieViewTem"
+                            android:layout_width="@dimen/dp_150"
+                            android:layout_height="@dimen/dp_150"
+                            plainpie:inner_pie_padding="30"
+                            plainpie:inner_text_visibility="true"
+                            plainpie:percentage="65"
+                            plainpie:percentage_size="30" />
+
+
+                        <TextView
+                            android:id="@+id/txtMessageTem"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp_5"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="@string/temperature"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/sp_25"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_3"
+                        android:background="@color/colorPrimaryDark" />
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <android.support.v7.widget.CardView
+            style="@style/DefaultCardView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:text="ສະຖານະ ປ້ຳນ້ຳ"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tv_water_pump"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/dp_18"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/sp_16">
+
+                    </TextView>
+
+                    <pl.tajchert.sample.DotsTextView
+                        android:id="@+id/dotW"
+                        style="@style/BodyTextView.White.Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:layout_marginRight="@dimen/dp_8"
+                        android:textColor="@color/colorAccent"
+                        android:visibility="gone"
+                        app:autoplay="true"
+                        app:period="1000" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="gone" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:text="ສະຖານະ ດອກໄຟ"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tv_light"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/dp_18"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/sp_16" />
+
+                    <pl.tajchert.sample.DotsTextView
+                        android:id="@+id/dotL"
+                        style="@style/BodyTextView.White.Normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:layout_marginRight="@dimen/dp_8"
+                        android:textColor="@color/colorAccent"
+                        android:visibility="gone"
+                        app:autoplay="true"
+                        app:period="1000" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_3"
+                android:background="@color/colorAccent" />
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
