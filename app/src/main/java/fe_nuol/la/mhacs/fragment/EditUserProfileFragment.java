@@ -158,7 +158,6 @@ public class EditUserProfileFragment extends BaseFragment {
         @Override
         public void onClick(View v) {
             final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
             if (swName.isChecked()) {
                 if (user != null && !edtName.getText().toString().trim().equals("")) {
                     String newEmail = edtName.getText().toString() + "@" + dataPref.getPincode() + ".com";
