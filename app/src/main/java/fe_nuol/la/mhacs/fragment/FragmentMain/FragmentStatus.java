@@ -44,8 +44,12 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
     private TextView tvDateTime;
     private TextView tvWaterPump;
     private TextView tvLight;
+    private TextView tvFanIn;
+    private TextView tvFanOut;
     private DotsTextView dotW;
     private DotsTextView dotL;
+    private DotsTextView dotFI;
+    private DotsTextView dotFO;
 
     private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference mSubRootRef;
@@ -54,6 +58,8 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
     private DatabaseReference mDateTimeRef;
     private DatabaseReference mWaterPumpRef;
     private DatabaseReference mLightRef;
+    private DatabaseReference mFanInRef;
+    private DatabaseReference mFanOutRef;
 
     private ProgressDialog mProgressDialog;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -121,6 +127,8 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
         mDateTimeRef = mSubRootRef.child("DateTime");
         mWaterPumpRef = mSubRootRef.child("Water_Pump");
         mLightRef = mSubRootRef.child("Light");
+        mFanInRef = mSubRootRef.child("Fan_In");
+        mFanOutRef = mSubRootRef.child("Fan_Out");
 
         bindView(rootView);
         initializes();
@@ -155,12 +163,69 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
 
         WaterPump();
         Light();
-
+        FanIn();
+        FanOut();
         Humidity();
         Temperature();
-
         DateTime();
     }
+
+    private void FanOut() {
+        mFanOutRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int i = dataSnapshot.getValue(Integer.class);
+                if (i == 1) {
+                    tvFanOut.setText("ກຳລັງເຮັດວຽກຢູ່");
+                    tvFanOut.setTextColor(Color.parseColor("#f45145"));
+                    dotFO.setVisibility(View.VISIBLE);
+
+                }else if (i == 0){
+                    tvFanOut.setText("ຢຸດເຮັດວຽກແລ້ວ");
+                    tvFanOut.setTextColor(Color.parseColor("#009491"));
+                    dotFO.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // stopping swipe refresh
+                swipeRefreshLayout.setRefreshing(false);
+                dismissDialog();
+                Log.d("F", "Failed: " + databaseError.getMessage());
+            }
+        });
+    }
+
+    private void FanIn() {
+        mFanInRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int i = dataSnapshot.getValue(Integer.class);
+                if (i == 1) {
+                    tvFanIn.setText("ກຳລັງເຮັດວຽກຢູ່");
+                    tvFanIn.setTextColor(Color.parseColor("#f45145"));
+                    dotFI.setVisibility(View.VISIBLE);
+
+                }else if (i == 0){
+                    tvFanIn.setText("ຢຸດເຮັດວຽກແລ້ວ");
+                    tvFanIn.setTextColor(Color.parseColor("#009491"));
+                    dotFI.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // stopping swipe refresh
+                swipeRefreshLayout.setRefreshing(false);
+                dismissDialog();
+                Log.d("F", "Failed: " + databaseError.getMessage());
+            }
+        });
+    }
+
 
     private void Light() {
         mLightRef.addValueEventListener(new ValueEventListener() {
@@ -308,9 +373,13 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
         tvDateTime = (TextView) rootView.findViewById(R.id.tv_date_time);
         tvWaterPump = (TextView) rootView.findViewById(R.id.tv_water_pump);
         tvLight = (TextView) rootView.findViewById(R.id.tv_light);
+        tvFanIn = (TextView) rootView.findViewById(R.id.tv_fan_in);
+        tvFanOut = (TextView) rootView.findViewById(R.id.tv_fan_out);
 
         dotW = (DotsTextView) rootView.findViewById(R.id.dotW);
         dotL = (DotsTextView) rootView.findViewById(R.id.dotL);
+        dotFI = (DotsTextView) rootView.findViewById(R.id.dotFI);
+        dotFO = (DotsTextView) rootView.findViewById(R.id.dotFO);
 
         pieViewHum.setPercentageBackgroundColor(getResources().getColor(R.color.indigo));
         pieViewTem.setPercentageBackgroundColor(getResources().getColor(R.color.dark_blue));

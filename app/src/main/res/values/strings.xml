@@ -25,4 +25,7 @@
     <string name="control_light">ຄວບຄຸມ ດອກໄຟ</string>
     <string name="control_water_pump">ຄວບຄຸມ ປ້ຳນ້ຳ</string>
     <string name="mode">ປ່ຽນໂໝດຄວບຄຸມ</string>
+
+    <string name="control_fan_in">ຄວບຄຸມ ພັດລົມດູດອາກາດເຂົ້າ</string>
+    <string name="control_fan_out">ຄວບຄຸມ ພັດລົມດູດອາກາດອອກ</string>
 </resources>

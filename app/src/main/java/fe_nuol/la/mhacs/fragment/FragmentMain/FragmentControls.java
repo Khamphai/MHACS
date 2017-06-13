@@ -34,12 +34,18 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
     private TextView tvStatusWaterPump;
     private TextView tvStatusLight;
     private TextView tvStatusMode;
+    private TextView tvStatusFanIn;
+    private TextView tvStatusFanOut;
     private Button btnControlWaterPump;
     private Button btnControlLight;
     private Button btnControlMode;
+    private Button btnControlFanIn;
+    private Button btnControlFanOut;
 
     private CardView cardViewWaterPump;
     private CardView cardViewLight;
+    private CardView cardViewFanIn;
+    private CardView cardViewFanOut;
 
     private DataPref dataPref;
 
@@ -52,6 +58,8 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
     private DatabaseReference mWaterPumpRef;
     private DatabaseReference mLightRef;
     private DatabaseReference mModeRef;
+    private DatabaseReference mFanInRef;
+    private DatabaseReference mFanOutRef;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -110,14 +118,75 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
     @SuppressWarnings("UnusedParameters")
     private void initInstances(View rootView, Bundle savedInstanceState) {
         // Init 'View' instance(s) with rootView.findViewById here
-
         mSubRootRef = mRootRef.child(dataPref.getPincode());
         mWaterPumpRef = mSubRootRef.child("Water_Pump");
         mLightRef = mSubRootRef.child("Light");
         mModeRef = mSubRootRef.child("mode");
+        mFanInRef = mSubRootRef.child("Fan_In");
+        mFanOutRef = mSubRootRef.child("Fan_Out");
 
         bindView(rootView);
         initializes();
+    }
+
+    private void FanIn() {
+        mFanInRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int i = dataSnapshot.getValue(Integer.class);
+                swipeRefreshLayout.setRefreshing(false);
+
+                if (i == 1) {
+                    btnControlFanIn.setBackgroundResource(R.drawable.selector_button_on);
+                    btnControlFanIn.setText("ON");
+                    tvStatusFanIn.setText("ເປີດ");
+                    tvStatusFanIn.setTextColor(Color.parseColor("#f45145"));
+
+                } else if (i == 0) {
+                    btnControlFanIn.setBackgroundResource(R.drawable.selector_button_off);
+                    btnControlFanIn.setText("OFF");
+                    tvStatusFanIn.setText("ປິດ");
+                    tvStatusFanIn.setTextColor(Color.parseColor("#009491"));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // stopping swipe refresh
+                swipeRefreshLayout.setRefreshing(false);
+                Log.d("F", "Failed: " + databaseError.getMessage());
+            }
+        });
+    }
+
+    private void FanOut() {
+        mFanOutRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int i = dataSnapshot.getValue(Integer.class);
+                swipeRefreshLayout.setRefreshing(false);
+
+                if (i == 1) {
+                    btnControlFanOut.setBackgroundResource(R.drawable.selector_button_on);
+                    btnControlFanOut.setText("ON");
+                    tvStatusFanOut.setText("ເປີດ");
+                    tvStatusFanOut.setTextColor(Color.parseColor("#f45145"));
+
+                } else if (i == 0) {
+                    btnControlFanOut.setBackgroundResource(R.drawable.selector_button_off);
+                    btnControlFanOut.setText("OFF");
+                    tvStatusFanOut.setText("ປິດ");
+                    tvStatusFanOut.setTextColor(Color.parseColor("#009491"));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // stopping swipe refresh
+                swipeRefreshLayout.setRefreshing(false);
+                Log.d("F", "Failed: " + databaseError.getMessage());
+            }
+        });
     }
 
     private void Light() {
@@ -207,7 +276,8 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
         Mode();
         WaterPump();
         Light();
-
+        FanIn();
+        FanOut();
     }
 
     private void Mode() {
@@ -224,6 +294,8 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
                     tvStatusMode.setTextColor(Color.parseColor("#009491"));
                     cardViewWaterPump.setVisibility(View.VISIBLE);
                     cardViewLight.setVisibility(View.VISIBLE);
+                    cardViewFanIn.setVisibility(View.VISIBLE);
+                    cardViewFanOut.setVisibility(View.VISIBLE);
                 } else if (i == 0) {
                     btnControlMode.setBackgroundResource(R.drawable.selector_button_on);
                     btnControlMode.setText("Auto");
@@ -231,6 +303,8 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
                     tvStatusMode.setTextColor(Color.parseColor("#f45145"));
                     cardViewWaterPump.setVisibility(View.GONE);
                     cardViewLight.setVisibility(View.GONE);
+                    cardViewFanIn.setVisibility(View.GONE);
+                    cardViewFanOut.setVisibility(View.GONE);
                 }
 
             }
@@ -251,17 +325,79 @@ public class FragmentControls extends BaseFragment implements SwipeRefreshLayout
         tvStatusWaterPump = (TextView) rootView.findViewById(R.id.tv_status_water_pump);
         tvStatusLight = (TextView) rootView.findViewById(R.id.tv_status_light);
         tvStatusMode = (TextView) rootView.findViewById(R.id.tv_status_mode);
+        tvStatusFanIn = (TextView) rootView.findViewById(R.id.tv_status_fan_in);
+        tvStatusFanOut = (TextView) rootView.findViewById(R.id.tv_status_fan_out);
         btnControlWaterPump = (Button) rootView.findViewById(R.id.btn_on_off_water_pump);
         btnControlLight = (Button) rootView.findViewById(R.id.btn_on_off_light);
         btnControlMode = (Button) rootView.findViewById(R.id.btn_mode);
+        btnControlFanIn = (Button) rootView.findViewById(R.id.btn_on_off_fan_in);
+        btnControlFanOut = (Button) rootView.findViewById(R.id.btn_on_off_fan_out);
         cardViewWaterPump = (CardView) rootView.findViewById(R.id.cardView_water_pump);
         cardViewLight = (CardView) rootView.findViewById(R.id.cardView_light);
+        cardViewFanIn = (CardView) rootView.findViewById(R.id.cardView_fan_in);
+        cardViewFanOut = (CardView) rootView.findViewById(R.id.cardView_fan_out);
 
         btnControlWaterPump.setOnClickListener(getButtonControlWaterPump);
         btnControlLight.setOnClickListener(getButtonControlLight);
         btnControlMode.setOnClickListener(getButtonControlMode);
+        btnControlFanIn.setOnClickListener(getButtonControlFanIn);
+        btnControlFanOut.setOnClickListener(getButtonControlFanOut);
 
     }
+
+    View.OnClickListener getButtonControlFanOut = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btnControlFanOut.getText().toString() == "OFF") {
+                try {
+                    mFanOutRef.setValue(1);
+                    btnControlFanOut.setBackgroundResource(R.drawable.selector_button_on);
+                    btnControlFanOut.setText("ON");
+                    tvStatusFanOut.setText("ON");
+                } catch (Exception e) {
+
+                }
+
+            } else {
+                try {
+                    mFanOutRef.setValue(0);
+                    btnControlFanOut.setBackgroundResource(R.drawable.selector_button_off);
+                    btnControlFanOut.setText("OFF");
+                    tvStatusFanOut.setText("OFF");
+                } catch (Exception e) {
+
+                }
+
+            }
+        }
+    };
+
+    View.OnClickListener getButtonControlFanIn = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btnControlFanIn.getText().toString() == "OFF") {
+                try {
+                    mFanInRef.setValue(1);
+                    btnControlFanIn.setBackgroundResource(R.drawable.selector_button_on);
+                    btnControlFanIn.setText("ON");
+                    tvStatusFanIn.setText("ON");
+                } catch (Exception e) {
+
+                }
+
+            } else {
+                try {
+                    mFanInRef.setValue(0);
+                    btnControlFanIn.setBackgroundResource(R.drawable.selector_button_off);
+                    btnControlFanIn.setText("OFF");
+                    tvStatusFanIn.setText("OFF");
+                } catch (Exception e) {
+
+                }
+
+            }
+        }
+    };
 
     View.OnClickListener getButtonControlMode = new View.OnClickListener() {
         @Override
