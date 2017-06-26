@@ -159,7 +159,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
 
         // showing refresh animation before making http call
         swipeRefreshLayout.setRefreshing(true);
-        showLoadingDialog();
+        //showLoadingDialog();
 
         WaterPump();
         Light();
@@ -192,7 +192,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
             public void onCancelled(DatabaseError databaseError) {
                 // stopping swipe refresh
                 swipeRefreshLayout.setRefreshing(false);
-                dismissDialog();
+                //dismissDialog();
                 Log.d("F", "Failed: " + databaseError.getMessage());
             }
         });
@@ -276,7 +276,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
             public void onCancelled(DatabaseError databaseError) {
                 // stopping swipe refresh
                 swipeRefreshLayout.setRefreshing(false);
-                dismissDialog();
+                //dismissDialog();
                 Log.d("F", "Failed: " + databaseError.getMessage());
             }
         });
@@ -289,7 +289,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
                 float i = dataSnapshot.getValue(Float.class);
                 // stopping swipe refresh
                 swipeRefreshLayout.setRefreshing(false);
-                dismissDialog();
+                //dismissDialog();
                 if (i != 0) {
                     pieViewTem.setPercentage(i);
                     pieViewTem.setInnerText(String.valueOf(i) + " \u2103");
@@ -308,7 +308,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
             public void onCancelled(DatabaseError databaseError) {
                 // stopping swipe refresh
                 swipeRefreshLayout.setRefreshing(false);
-                dismissDialog();
+                //dismissDialog();
                 Log.d("F", "Failed: " + databaseError.getMessage());
             }
         });
@@ -349,7 +349,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
                 String s = dataSnapshot.getValue(String.class);
                 // stopping swipe refresh
                 swipeRefreshLayout.setRefreshing(false);
-                dismissDialog();
+                //dismissDialog();
                 if (s != null) tvDateTime.setText(FormatDate.formatCurrentDateTime(s));
             }
 
@@ -357,7 +357,7 @@ public class FragmentStatus extends BaseFragment implements SwipeRefreshLayout.O
             public void onCancelled(DatabaseError databaseError) {
                 // stopping swipe refresh
                 swipeRefreshLayout.setRefreshing(false);
-                dismissDialog();
+                //dismissDialog();
                 Log.d("F", "Failed: " + databaseError.getMessage());
             }
         });
