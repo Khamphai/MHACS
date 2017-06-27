@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView"
+                style="@style/DefaultCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="50dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@color/colorPrimaryDark" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Switch
+                        android:id="@+id/sw_open_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="20dp"
+                        android:checked="false" />
+
+                    <TextView
+                        android:id="@+id/tv_min_hum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:text="ຄວາມຊຸ່ມ ຕ່ຳສຸດ"
+                        android:layout_below="@+id/sw_open_close"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/min_hum"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:background="@drawable/selector_button_off"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_min_hum"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:hint="Min Humidity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/tv_max_hum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:text="ຄວາມຊຸ່ມ ສູງສຸດ"
+                        android:layout_below="@+id/min_hum"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/max_hum"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_max_hum"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="32dp"
+                        android:background="@drawable/selector_button_off"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:hint="Max Humidity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/tv_min_tem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:text="ອຸນຫະພູມ ຕ່ຳສຸດ"
+                        android:layout_below="@+id/max_hum"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/min_tem"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_min_tem"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/selector_button_off"
+                        android:gravity="center"
+                        android:hint="Min Temperature"
+                        android:inputType="number"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/tv_max_tem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_5"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:text="ອຸນຫະພູມ ສູງສຸດ"
+                        android:layout_below="@+id/min_tem"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/max_tem"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_max_tem"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/selector_button_off"
+                        android:gravity="center"
+                        android:hint="Max Temperature"
+                        android:inputType="number"
+                        android:singleLine="true" />
+
+
+                    <Button
+                        android:visibility="gone"
+                        android:id="@+id/btnSetting"
+                        style="@style/BlueButton"
+                        fontPath="fonts/DroidSans.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/max_tem"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="2dp"
+                        android:text="ປ່ຽນແປງການຕັ້ງຄ່າ" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

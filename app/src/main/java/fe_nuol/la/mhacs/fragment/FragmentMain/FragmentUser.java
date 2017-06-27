@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import fe_nuol.la.mhacs.R;
+import fe_nuol.la.mhacs.activity.SettingActivity;
 import fe_nuol.la.mhacs.fragment.BaseFragment;
 import fe_nuol.la.mhacs.activity.EditUserProfileActivity;
 import fe_nuol.la.mhacs.activity.LoginActivity;
@@ -41,6 +42,7 @@ public class FragmentUser extends BaseFragment {
     private FloatingActionButton fabLogOut;
     private FloatingActionButton fabLogPinCode;
     private FloatingActionButton fabUserEdit;
+    private FloatingActionButton fabSetting;
     private Handler delayAction = new Handler();
 
     public FragmentUser() {
@@ -188,7 +190,7 @@ public class FragmentUser extends BaseFragment {
         fabLogOut = (FloatingActionButton) rootView.findViewById(R.id.fab_logout);
         fabLogPinCode = (FloatingActionButton) rootView.findViewById(R.id.fab_log_pin_code);
         fabUserEdit = (FloatingActionButton) rootView.findViewById(R.id.fab_edit_user);
-
+        fabSetting = (FloatingActionButton) rootView.findViewById(R.id.fab_setting);
         final int famAnimationDuration = 50;
         famMenu.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override
@@ -324,6 +326,16 @@ public class FragmentUser extends BaseFragment {
                 //TODO: fabUserEdit Here
 //                Toast.makeText(getActivity(), "fabUserEdit is clicked",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getActivity(), EditUserProfileActivity.class));
+                famMenu.close(true);
+            }
+        });
+
+        fabSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: fabSetting Here
+//                Toast.makeText(getActivity(), "fabUserEdit is clicked",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getActivity(), SettingActivity.class));
                 famMenu.close(true);
             }
         });

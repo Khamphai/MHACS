@@ -24,7 +24,7 @@
                 android:padding="@dimen/dp_16">
 
                 <ImageButton
-                    android:src="@drawable/avatar_placeholder_300"
+                    android:src="@drawable/icon"
                     android:background="@color/transparent"
                     android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginBottom="@dimen/dp_10"
@@ -198,6 +198,16 @@
             android:layout_marginBottom="@dimen/dp_16"
             android:layout_marginRight="@dimen/dp_16"
             android:layout_marginEnd="@dimen/dp_16">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_settings_black_36dp"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_label="@string/setting"
+                fab:fab_colorPressed="@color/white_pressed"/>
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fab_edit_user"

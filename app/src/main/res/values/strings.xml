@@ -9,6 +9,7 @@
     <string name="tool_login">| Login MHACS |</string>
     <string name="tool_main">| Dashboard MHACS |</string>
     <string name="edit_user_profile">ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</string>
+    <string name="setting">ຕັ້ງຄ່າ</string>
     <string name="title">ແຈ້ງເຕືອນ</string>
     <string name="humidity">ຄວາມຊຸ່ມ</string>
     <string name="temperature">ອຸນຫະພູມ</string>
